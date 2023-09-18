@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -16,6 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PagesController::class, 'home'])->name('home');
+
+// Auth
+Route::get('/login', [PagesController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [AuthController::class, 'validateLogin'])->name('login')->middleware('guest');
+
+Route::get('/register', [PagesController::class, 'register'])->name('register')->middleware('guest');
+Route::post('/register', [AuthController::class, 'registerUser'])->name('register')->middleware('guest');
+
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
 
 // Route for clearing caches
 Route::get('/clear-caches', function () {
