@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
 use Illuminate\Support\Facades\Artisan;
@@ -26,6 +27,11 @@ Route::get('/register', [PagesController::class, 'register'])->name('register')-
 Route::post('/register', [AuthController::class, 'registerUser'])->name('register')->middleware('guest');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
+
+// Adminpanel routes
+Route::group(['prefix' => '/adminpanel', 'middleware' => 'admin'], function () {
+    Route::get('/', [AdminController::class, 'dashboard'])->name('adminpanel');
+});
 
 // Route for clearing caches
 Route::get('/clear-caches', function () {
