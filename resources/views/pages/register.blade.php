@@ -10,7 +10,6 @@
 
                     <div class="field">
                         <label for="name">Name</label>
-                        <!-- TODO: Gem gammel data ved fejlende registrering -->
                         <input type="text" name="name" id="name" class="@error('name') has-error @enderror" placeholder="John Doe">
                         @error('name')
                             <span class="field-error">{{$message}}</span>
@@ -19,7 +18,6 @@
 
                     <div class="field">
                         <label for="email">Email</label>
-                        <!-- TODO: Gem gammel data ved fejlende registrering -->
                         <input type="email" name="email" id="email" class="@error('email') has-error @enderror" placeholder="John@gmail.com">
                         @error('email')
                             <span class="field-error">{{$message}}</span>
