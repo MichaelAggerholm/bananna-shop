@@ -10,7 +10,6 @@
 
                     <div class="field">
                         <label for="email">Email</label>
-                        <!-- TODO: Gem gammel data ved fejlende registrering -->
                         <input type="email" name="email" id="email" class="@error('email') has-error @enderror" placeholder="John@gmail.com" value="{{old('email')}}">
                         @error('email')
                             <span class="field-error">{{$message}}</span>
