@@ -56,6 +56,19 @@ body {
     }
 }
 
+.form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $dark-green;
+    opacity: 1; /* Firefox */
+}
+
+.form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $dark-green;
+}
+
+.form-control::-ms-input-placeholder { /* Microsoft Edge */
+    color: $dark-green;
+}
+
 .btn {
     cursor: pointer;
     padding: 10px 35px;
@@ -69,7 +82,7 @@ body {
     background: $yellow;
     color: #fff;
 
-    &:hover {
+    &:hover, &:active, &:focus {
         background: $pink;
     }
 }
@@ -123,4 +136,14 @@ body {
         text-decoration: none;
         color: $dark-green;
     }
+}
+
+.login-page {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-box {
+    padding-top: 150px;
 }

@@ -24,8 +24,12 @@
                             <li><a class="dropdown-item" href="#">Link 3</a></li>
                         </ul>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Log ind</a>
+                    </li>
                 </ul>
                 <form class="d-flex" role="search">
+                    @csrf
                     <input class="form-control me-2" type="search" placeholder="Din favorit banan.." aria-label="Search">
                     <button class="btn btn-primary" type="submit">Søg</button>
                 </form>

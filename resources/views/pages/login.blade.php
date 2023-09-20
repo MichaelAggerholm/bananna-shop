@@ -1,37 +1,22 @@
 @extends('layouts.master')
 @section('title', 'Login')
 @section('content')
-    <section class="login-page">
-        <div class="login-form-box">
-            <div class="login-title">Login</div>
-            <div class="login-form">
-                <form action="{{route('login')}}" method="post">
-                    @csrf
+    <div class="login-page">
+        <div class="login-box">
+            <form action="{{ route('login') }}" method="post">
+                @csrf
+                <div class="form-group m-2">
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                </div>
+                <div class="form-group m-2">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                </div>
 
-                    <div class="field">
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" class="@error('email') has-error @enderror" placeholder="John@gmail.com" value="{{old('email')}}">
-                        @error('email')
-                            <span class="field-error">{{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="field">
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" class="@error('password') has-error @enderror" placeholder="********">
-                        @error('password')
-                            <span class="field-error">{{$message}}</span>
-                        @enderror
-                    </div>
-
-                    <div class="field">
-                        <button type="submit" class="btn btn-primary btn-block">Login</button>
-                    </div>
-
-                    <a href="{{route('register')}}">Ny bruger? Registrer nu..</a>
-
-                </form>
-            </div>
+                <button type="submit" class="btn btn-primary m-2">Log ind</button>
+                <br />
+                <a href="{{route('register')}}" class="nav-link m-2">Ny bruger? Registrer nu..</a>
+            </form>
         </div>
-    </section>
+    </div>
+
 @endsection
