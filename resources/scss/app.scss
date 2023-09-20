@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import 'bootstrap/scss/bootstrap';
+
+$yellow: #dcb633;
+$dark-green: #3e5336;
+$light-green: #948f47;
+$white: #f6f5f0;
+$pink: #e55b7e;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: $dark-green;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: $white;
+}
+
+.page {
+    min-height: 75vh;
+}
+
+.navbar-brand {
+    color: $yellow;
+
+    &:hover {
+        color: $pink;
+    }
+
+    &:focus {
+        color: $yellow;
+    }
+}
+
+.navbar {
+    background-color: $white;
+}
+
+.nav-link {
+    color: $dark-green;
+    transition: all 0.3s ease;
+
+    &:hover {
+        color: $pink;
+    }
+}
+
+.form-control {
+    color: $pink;
+
+    &:focus {
+        color: $pink;
+    }
+}
+
+.btn {
+    cursor: pointer;
+    padding: 10px 35px;
+    border-radius: 300px;
+    border: none;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: $yellow;
+    color: #fff;
+
+    &:hover {
+        background: $pink;
+    }
+}
+
+.btn-outlined {
+    border: 1px solid $dark-green;
+    background: #fff;
+    color: $dark-green;
+
+    &:hover {
+        background: $pink;
+        color: #fff;
+    }
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .card {
+        margin: 12px;
+
+        img {
+            height: 200px;
+            object-fit: contain;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    .product-list {
+
+        .card {;
+            max-width: 300px;
+        }
+    }
+}
+
+.home-section {
+    margin-bottom: 50px;
+}
+
+.list-unstyled {
+
+
+    a, a:hover, a:focus, a:active {
+        text-decoration: none;
+        color: $dark-green;
+    }
+}
