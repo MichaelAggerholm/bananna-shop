@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,16 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middl
 // Adminpanel routes
 Route::group(['prefix' => '/adminpanel', 'middleware' => 'admin'], function () {
     Route::get('/', [AdminController::class, 'dashboard'])->name('adminpanel');
+
+    // Products routes
+    Route::group(['prefix' => 'users'], function() {
+        Route::get('/', [UserController::class, 'index'])->name('adminpanel.users');
+        Route::get('/create', [UserController::class, 'create'])->name('adminpanel.users.create');
+        Route::post('/create', [UserController::class, 'store'])->name('adminpanel.users.store');
+        Route::get('/{id}', [UserController::class, 'edit'])->name('adminpanel.users.edit');
+        Route::put('/{id}', [UserController::class, 'update'])->name('adminpanel.users.edit');
+        Route::delete('/{id}', [UserController::class, 'destroy'])->name('adminpanel.users.destroy');
+    });
 });
 
 // Route for clearing caches

@@ -6,10 +6,16 @@
             <form action="{{ route('login') }}" method="post">
                 @csrf
                 <div class="form-group m-2">
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                    <input type="email" name="email" id="email" class="form-control @error('email') has-error @enderror" placeholder="John@gmail.com" value="{{old('email')}}">
+                    @error('email')
+                    <span class="field-error">{{$message}}</span>
+                    @enderror
                 </div>
                 <div class="form-group m-2">
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" name="password" id="password" class="form-control @error('password') has-error @enderror" placeholder="********">
+                    @error('password')
+                    <span class="field-error">{{$message}}</span>
+                    @enderror
                 </div>
 
                 <button type="submit" class="btn btn-primary m-2">Log ind</button>

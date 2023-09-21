@@ -1,25 +1,24 @@
 <aside class="side-nav">
 
     <div class="logo">
-{{--        <img src="{{asset('img/Toy-Store-Logo.png')}}" alt="Adminpanel Logo">--}}
-        ADMINPANEL
+        Admin
     </div>
 
     <ul>
         <li>
-            <a href="{{route('adminpanel')}}">Dashboard</a>
+            <a href="{{ route('adminpanel') }}">Dashboard</a>
         </li>
         <li>
-            <a href="#">nav 1</a>
+            <a href="{{ route('adminpanel.users') }}">Brugerer</a>
         </li>
         <li>
-            <a href="#">nav 2</a>
+            <a href="#">Categories</a>
         </li>
         <li>
-            <a href="#">nav 3</a>
+            <a href="#">Colors</a>
         </li>
         <li>
-            <a href="#">nav 4</a>
+            <a href="#">Orders</a>
         </li>
     </ul>
 
@@ -36,7 +35,7 @@
                     0 0 1 0-.998l.03-.031a16.843 16.843 0 0 1 4.885-3.539a.718.718 0 0 1 1.025.578l.03.305c.034.355.063.71.086 1.066h4.856a1
                     1 0 0 1 1 1v2.24Z"/>
                 </svg>
-                &nbsp; Log ud
+                &nbsp; Logout
             </button>
         </form>
     </div>
