@@ -73,4 +73,13 @@ class UserController extends Controller
 
         return back()->with('success', 'Bruger Slettet!');
     }
+
+    public function update_is_verified($id, Request $request) {
+        $user = User::findOrFail($id);
+        $user->updated_at = Carbon::now();
+        $user->is_verified = $request->is_verified;
+        $user->save();
+
+        return redirect()->route('adminpanel.users')->with('success', 'Brugeren blev opdateret!');
+    }
 }

@@ -34,7 +34,16 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{\Carbon\Carbon::parse($user->created_at)->format('d/m/Y')}}</td>
                                     <td>{{\Carbon\Carbon::parse($user->updated_at)->format('d/m/Y')}}</td>
-                                    <td>{{$user->is_verified}}</td>
+                                    <td>
+                                        <form action="{{route('adminpanel.user.is_verified.update', $user->id)}}" method="post" style="display:flex;gap:15px;max-width:300px;">
+                                            @csrf
+                                            <select name="is_verified" id="is_verified" class="form-control @error('is_verified') is-invalid @enderror">
+                                                <option value="0" {{ $user->is_verified == 0 ? 'selected' : '' }}>No</option>
+                                                <option value="1" {{ $user->is_verified == 1 ? 'selected' : '' }}>Yes</option>
+                                            </select>
+                                            <button type="submit" class="btn btn-success btn-sm">Opdater</button>
+                                        </form>
+                                    </td>
                                     <td>{{$user->is_admin}}</td>
                                     <td>
                                         <div class="d-flex" style="gap: 5px;">

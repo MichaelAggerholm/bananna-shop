@@ -25,7 +25,11 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">Log ind</a>
+                        @if(! $is_logged_in)
+                            <a class="nav-link" href="{{ route("login") }}">Login</a>
+                        @else
+                            <a class="nav-link" href="{{ route("logout") }}">Logout</a>
+                        @endif
                     </li>
                 </ul>
                 <form class="d-flex" role="search">
