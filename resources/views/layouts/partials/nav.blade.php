@@ -25,11 +25,21 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        @if(! $is_logged_in)
-                            <a class="nav-link" href="{{ route("login") }}">Login</a>
-                        @else
-                            <a class="nav-link" href="{{ route("logout") }}">Logout</a>
-                        @endif
+                        <?php
+                            // Grim grim grim kode til at tjekke om brugeren er logget ind eller ej..
+                            if (Auth::check()) {
+                                ?>
+                                    <form action="{{route('logout')}}" method="post">
+                                        @csrf
+                                        <button class="nav-link">Logout</button>
+                                    </form>
+                                <?php
+                            } else {
+                                ?>
+                                    <a class="nav-link" href="{{ route("login") }}">Login</a>
+                                <?php
+                            }
+                        ?>
                     </li>
                 </ul>
                 <form class="d-flex" role="search">

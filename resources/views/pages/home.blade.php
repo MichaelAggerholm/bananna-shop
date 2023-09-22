@@ -13,10 +13,11 @@
                         <div class="card-body">
                             <h5 class="card-title">Banan klase</h5>
                             <p class="card-text">Kort beskrivelse af produktet som er en banan klase.</p>
+                            <a href="#" class="btn btn-primary">Se mere</a>
                             @if($is_verified)
-                                <a href="#" class="btn btn-primary">Se mere</a>
+                                <a href="#" class="btn btn-success" style="min-width: 129px">Køb</a>
                             @else
-                                <a href="#" class="btn btn-secondary disabled">Se mere</a>
+                                <a href="#" class="btn btn-secondary disabled" style="min-width: 129px">Køb</a>
                             @endif
                         </div>
                     </div>
