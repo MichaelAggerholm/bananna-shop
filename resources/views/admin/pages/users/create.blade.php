@@ -13,21 +13,21 @@
                         <form action="{{route('adminpanel.users.store')}}" method="post">
                             @csrf
 
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <div class="form-group mb-3">
-                                        <label for="name">Navn</label>
-                                        <input type="text" name="name" id="name"
-                                               class="form-control @error('name') is-invalid @enderror"
-                                               value="{{old('name')}}"/>
-                                        @error('name')
-                                        <span class="invalid-feedback">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
+                                <div class="row mb-3">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="name">Navn</label>
+                                            <input type="text" name="name" id="name"
+                                                   class="form-control @error('name') is-invalid @enderror"
+                                                   value="{{old('name')}}"/>
+                                            @error('name')
+                                            <span class="invalid-feedback">
+                                                <strong>{{$message}}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
@@ -66,12 +66,11 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label for="is_verified">Verificeret</label>
-                                        <select name="is_verified" id="is_verified" class="form-control @error('is_verified') is-invalid @enderror">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
-                                        </select>
-                                        @error('is_verified')
+                                        <label for="company">Firma</label>
+                                        <input type="text" name="company" id="company"
+                                               class="form-control @error('company') is-invalid @enderror"
+                                               value="{{old('company')}}"/>
+                                        @error('company')
                                         <span class="invalid-feedback">
                                             <strong>{{$message}}</strong>
                                         </span>
@@ -83,12 +82,92 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label for="is_admin">Admin</label>
-                                        <select name="is_admin" id="is_admin" class="form-control @error('is_admin') is-invalid @enderror">
-                                            <option value="0">No</option>
-                                            <option value="1">Yes</option>
-                                        </select>
-                                        @error('is_admin')
+                                        <label for="address">Adresse</label>
+                                        <input type="text" name="address" id="address"
+                                               class="form-control @error('address') is-invalid @enderror"
+                                               value="{{old('address')}}"/>
+                                        @error('address')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="city">By</label>
+                                        <input type="text" name="city" id="city"
+                                               class="form-control @error('city') is-invalid @enderror"
+                                               value="{{old('city')}}"/>
+                                        @error('city')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="zip">Postnr</label>
+                                        <input type="number" name="zip" id="zip"
+                                               class="form-control @error('zip') is-invalid @enderror"
+                                               value="{{old('zip')}}"/>
+                                        @error('zip')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="phone">Telefon</label>
+                                        <input type="number" name="phone" id="phone"
+                                               class="form-control @error('phone') is-invalid @enderror"
+                                               value="{{old('phone')}}"/>
+                                        @error('phone')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="cvr">CVR</label>
+                                        <input type="text" name="cvr" id="cvr"
+                                               class="form-control @error('cvr') is-invalid @enderror"
+                                               value="{{old('cvr')}}"/>
+                                        @error('cvr')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            {{--TODO: Add role select--}}
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="role_id">Rolle ID</label>
+                                        <input type="number" name="role_id" id="role_id"
+                                               class="form-control @error('role_id') is-invalid @enderror"
+                                               value="{{old('role_id')}}"/>
+                                        @error('role_id')
                                         <span class="invalid-feedback">
                                             <strong>{{$message}}</strong>
                                         </span>

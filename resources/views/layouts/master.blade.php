@@ -13,6 +13,21 @@
 <body>
 @include('layouts.partials.nav')
 <main class="page">
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
+    @if(session('error'))
+        <div class="alert alert-danger">
+            {{ session('error') }}
+        </div>
+    @endif
+    @if(session('warning'))
+        <div class="alert alert-warning">
+            {{ session('warning') }}
+        </div>
+    @endif
     @yield('content')
 </main>
 @include('layouts.partials.footer')

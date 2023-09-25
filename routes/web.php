@@ -7,17 +7,6 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
 Route::get('/', [PagesController::class, 'home'])->name('home');
 
 // Auth
@@ -41,7 +30,7 @@ Route::group(['prefix' => '/adminpanel', 'middleware' => 'admin'], function () {
         Route::get('/{id}', [UserController::class, 'edit'])->name('adminpanel.users.edit');
         Route::put('/{id}', [UserController::class, 'update'])->name('adminpanel.users.edit');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('adminpanel.users.destroy');
-        Route::post('/{id}', [UserController::class, 'update_is_verified'])->name('adminpanel.user.is_verified.update');
+        // TODO: Add update role route
     });
 });
 

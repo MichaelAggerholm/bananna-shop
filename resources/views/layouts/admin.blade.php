@@ -12,6 +12,7 @@
 <body>
     @include('admin.partials.nav')
     <main class="admin-main">
+        {{--TODO: Fix håndtering af alerts i admin--}}
         @if(session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}

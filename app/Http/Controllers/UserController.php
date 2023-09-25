@@ -23,18 +23,28 @@ class UserController extends Controller
             'name'          => 'required|max:255',
             'email'         => 'required|unique:users|max:255',
             'password'      => 'required|confirmed',
-            'is_verified'   => 'required|boolean',
-            'is_admin'      => 'required|boolean',
+            'role_id'       => 'required|exists:roles,id',
+            'company'       => 'required|max:255',
+            'address'       => 'required|max:255',
+            'city'          => 'required|max:255',
+            'zip'           => 'required|digits:4',
+            'phone'         => 'required|digits:8',
+            'cvr'           => 'required|digits:8',
         ]);
 
         $user = new User;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->created_at = Carbon::now();
-        $user->updated_at = Carbon::now();
-        $user->is_verified = $request->is_verified;
-        $user->is_admin = $request->is_admin;
+        $user->name         = $request->name;
+        $user->email        = $request->email;
+        $user->password     = $request->password;
+        $user->created_at   = Carbon::now();
+        $user->updated_at   = Carbon::now();
+        $user->role_id      = $request->role_id;
+        $user->company      = $request->company;
+        $user->address      = $request->address;
+        $user->city         = $request->city;
+        $user->zip          = $request->zip;
+        $user->phone        = $request->phone;
+        $user->cvr          = $request->cvr;
         $user->save();
 
         return redirect()->route('adminpanel.users')->with('success', 'Brugeren blev oprettet!');
@@ -50,8 +60,13 @@ class UserController extends Controller
         $request->validate([
             'name'          => 'required|max:255',
             'email'         => 'required|max:255',
-            'is_verified'   => 'required',
-            'is_admin'      => 'required',
+            'role_id'       => 'required|exists:roles,id',
+            'company'       => 'required|max:255',
+            'address'       => 'required|max:255',
+            'city'          => 'required|max:255',
+            'zip'           => 'required|digits:4',
+            'phone'         => 'required|digits:8',
+            'cvr'           => 'required|digits:8',
         ]);
 
         $user = User::findOrFail($id);
@@ -61,8 +76,13 @@ class UserController extends Controller
             'name'          => $request->name,
             'email'         => $request->email,
             'updated_at'    => Carbon::now(),
-            'is_verified'   => $request->is_verified,
-            'is_admin'      => $request->is_admin,
+            'role_id'       => $request->role_id,
+            'company'       => $request->company,
+            'address'       => $request->address,
+            'city'          => $request->city,
+            'zip'           => $request->zip,
+            'phone'         => $request->phone,
+            'cvr'           => $request->cvr,
         ]);
 
         return redirect()->route('adminpanel.users')->with('success', 'Brugeren blev opdateret!');
@@ -72,14 +92,5 @@ class UserController extends Controller
         User::findOrFail($id)->delete();
 
         return back()->with('success', 'Bruger Slettet!');
-    }
-
-    public function update_is_verified($id, Request $request) {
-        $user = User::findOrFail($id);
-        $user->updated_at = Carbon::now();
-        $user->is_verified = $request->is_verified;
-        $user->save();
-
-        return redirect()->route('adminpanel.users')->with('success', 'Brugeren blev opdateret!');
     }
 }

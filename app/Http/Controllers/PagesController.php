@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
     public function home() {
-        $is_verified = auth()->user() ? auth()->user()->is_verified : false;
+        $is_verified = Auth::user() && (Auth::user()->role_id === 2 || Auth::user()->role_id === 3);
 
         return view('pages.home', ['is_verified' => $is_verified]);
     }
