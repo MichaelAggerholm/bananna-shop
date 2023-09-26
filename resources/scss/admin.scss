@@ -2,8 +2,8 @@
 @import 'bootstrap/scss/bootstrap';
 
 $yellow: #dcb633;
-$dark-green: #3e5336;
-$light-green: #948f47;
+$blue: #3e7cd5;
+$gray: #545454;
 $white: #f6f5f0;
 $pink: #e55b7e;
 
@@ -29,11 +29,20 @@ body {
 }
 
 .btn-primary {
-    background: $light-green;
+    background: $blue;
     color: #fff;
 
     &:hover {
-        background: $dark-green;
+        background: $blue;
+    }
+}
+
+.btn-secondary {
+    background: $blue;
+    color: #fff;
+
+    &:hover {
+        background: $blue;
     }
 }
 
@@ -42,7 +51,7 @@ body {
 }
 
 .side-nav {
-    background: $light-green;
+    background: $gray;
     position: fixed;
     top: 0;
     left: 0;
@@ -81,17 +90,17 @@ body {
                 color: $white;
                 text-decoration: none;
                 padding: 10px 25px;
-                background-color: $dark-green;
+                background-color: $blue;
                 border-radius: 3px;
-                font-weight: 200;
+                font-weight: 600;
                 display: flex;
                 transition: all 0.1s ease;
 
                 &:hover {
                     background-color: $white;
-                    color: $light-green;
-                    font-weight: 500;
-                    transform: skewX(-15deg);
+                    color: $blue;
+                    font-weight: 600;
+                    //transform: skewX(-15deg);
                 }
             }
         }
@@ -100,7 +109,7 @@ body {
     .logout {
 
         button {
-            background: $dark-green;
+            background: $blue;
             border: 1px solid #ffffff7a;
             position: absolute;
             left: 15px;
@@ -110,15 +119,16 @@ body {
             justify-content: center;
             align-items: center;
             padding: 5px 25px;
-            border-radius: 200px;
+            border-radius: 3px;
             font-size: 12px;
             transition: all 0.4s ease;
-            font-weight: 300;
+            font-weight: 600;
             font-style: italic;
             cursor: pointer;
 
             &:hover {
-                background: $pink;
+                background: $white;
+                color: $blue;
             }
         }
     }
@@ -129,7 +139,7 @@ body {
     padding: 40px 25px;
 
     .page-title {
-        color: $light-green;
+        color: $gray;
         margin-bottom: 15px;
         font-size: 24px;
         font-weight: 600;
