@@ -143,11 +143,18 @@
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <div class="form-group mb-3">
+                                    <div class="form-group">
                                         <label for="role_id">Rolle</label>
-                                        <input type="number" name="role_id" id="role_id"
-                                               class="form-control @error('role_id') is-invalid @enderror"
-                                               value="{{$user->role_id}}"/>
+                                        <select name="role_id" id="role_id"
+                                                class="form-control @error('role_id') is_invalid @enderror">
+                                            <option value="">-- Vælg rolle --</option>
+                                            @foreach($roles as $role)
+                                                <option
+                                                    value="{{$role->id}}" {{$role->role_id == $role->id ? 'selected' : ''}}>
+                                                    {{$role->name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         @error('role_id')
                                         <span class="invalid-feedback">
                                             <strong>{{$message}}</strong>

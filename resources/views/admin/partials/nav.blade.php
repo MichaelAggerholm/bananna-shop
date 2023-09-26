@@ -12,10 +12,7 @@
             <a href="{{ route('adminpanel.users') }}">Brugerer</a>
         </li>
         <li>
-            <a href="#">Categories</a>
-        </li>
-        <li>
-            <a href="#">Colors</a>
+            <a href="#">Sorter</a>
         </li>
         <li>
             <a href="#">Orders</a>

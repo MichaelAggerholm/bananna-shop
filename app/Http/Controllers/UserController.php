@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -15,7 +16,9 @@ class UserController extends Controller
     }
 
     public function create() {
-        return view('admin.pages.users.create');
+        $roles = Role::all();
+
+        return view('admin.pages.users.create', ['roles' => $roles]);
     }
 
     public function store(Request $request) {
@@ -52,8 +55,9 @@ class UserController extends Controller
 
     public function edit($id) {
         $user = User::findOrFail($id);
+        $roles = Role::all();
 
-        return view('admin.pages.users.edit', ['user' => $user]);
+        return view('admin.pages.users.edit', ['user' => $user, 'roles' => $roles]);
     }
 
     public function update(Request $request, $id) {

@@ -30,7 +30,6 @@ Route::group(['prefix' => '/adminpanel', 'middleware' => 'admin'], function () {
         Route::get('/{id}', [UserController::class, 'edit'])->name('adminpanel.users.edit');
         Route::put('/{id}', [UserController::class, 'update'])->name('adminpanel.users.edit');
         Route::delete('/{id}', [UserController::class, 'destroy'])->name('adminpanel.users.destroy');
-        // TODO: Add update role route
     });
 });
 

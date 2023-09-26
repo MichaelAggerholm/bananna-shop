@@ -162,15 +162,22 @@
                             {{--TODO: Add role select--}}
                             <div class="row mb-3">
                                 <div class="col-md-6">
-                                    <div class="form-group mb-3">
-                                        <label for="role_id">Rolle ID</label>
-                                        <input type="number" name="role_id" id="role_id"
-                                               class="form-control @error('role_id') is-invalid @enderror"
-                                               value="{{old('role_id')}}"/>
+                                    <div class="form-group">
+                                        <label for="role_id">Rolle</label>
+                                        <select name="role_id" id="role_id"
+                                                class="form-control @error('role_id') is_invalid @enderror">
+                                            <option value="">-- Vælg rolle --</option>
+                                            @foreach($roles as $role)
+                                                <option
+                                                    value="{{$role->id}}" {{old('role_id') == $role->id ? 'selected' : ''}}>
+                                                    {{$role->name}}
+                                                </option>
+                                            @endforeach
+                                        </select>
                                         @error('role_id')
                                         <span class="invalid-feedback">
-                                            <strong>{{$message}}</strong>
-                                        </span>
+                                                <strong>{{$message}}</strong>
+                                            </span>
                                         @enderror
                                     </div>
                                 </div>
