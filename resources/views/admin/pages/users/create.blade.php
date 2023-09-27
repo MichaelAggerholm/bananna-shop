@@ -10,32 +10,16 @@
                         <h5>Opret bruger</h5>
                     </div>
                     <div class="card-body">
-                        <form action="{{route('adminpanel.users.store')}}" method="post">
+                        <form action="{{route('adminpanel.users.store')}}" method="post" id="userRegistrationForm">
                             @csrf
-
-                                <div class="row mb-3">
-                                    <div class="col-md-6">
-                                        <div class="form-group mb-3">
-                                            <label for="name">Navn</label>
-                                            <input type="text" name="name" id="name"
-                                                   class="form-control @error('name') is-invalid @enderror"
-                                                   value="{{old('name')}}"/>
-                                            @error('name')
-                                            <span class="invalid-feedback">
-                                                <strong>{{$message}}</strong>
-                                            </span>
-                                            @enderror
-                                        </div>
-                                    </div>
-                                </div>
 
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
-                                        <label for="email">Email</label>
-                                        <input type="text" name="email" id="email"
-                                               class="form-control @error('email') is-invalid @enderror"
-                                               value="{{old('email')}}"/>
+                                        <label for="name">Navn</label>
+                                        <input type="text" name="name" id="name"
+                                               class="form-control @error('name') is-invalid @enderror"
+                                               value="{{old('name')}}"/>
                                         @error('name')
                                         <span class="invalid-feedback">
                                             <strong>{{$message}}</strong>
@@ -66,11 +50,45 @@
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group mb-3">
+                                        <label for="cvr">CVR</label>
+                                        <div class="cvrContainer">
+                                            <input type="text" name="cvr" id="cvr"
+                                                   class="form-control @error('cvr') is-invalid @enderror"
+                                                   value="{{old('cvr')}}"/>
+                                        </div>
+                                        @error('cvr')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
                                         <label for="company">Firma</label>
                                         <input type="text" name="company" id="company"
                                                class="form-control @error('company') is-invalid @enderror"
                                                value="{{old('company')}}"/>
                                         @error('company')
+                                        <span class="invalid-feedback">
+                                            <strong>{{$message}}</strong>
+                                        </span>
+                                        @enderror
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row mb-3">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3">
+                                        <label for="email">Email</label>
+                                        <input type="text" name="email" id="email"
+                                               class="form-control @error('email') is-invalid @enderror"
+                                               value="{{old('email')}}"/>
+                                        @error('name')
                                         <span class="invalid-feedback">
                                             <strong>{{$message}}</strong>
                                         </span>
@@ -143,23 +161,6 @@
                                 </div>
                             </div>
 
-                            <div class="row mb-3">
-                                <div class="col-md-6">
-                                    <div class="form-group mb-3">
-                                        <label for="cvr">CVR</label>
-                                        <input type="text" name="cvr" id="cvr"
-                                               class="form-control @error('cvr') is-invalid @enderror"
-                                               value="{{old('cvr')}}"/>
-                                        @error('cvr')
-                                        <span class="invalid-feedback">
-                                            <strong>{{$message}}</strong>
-                                        </span>
-                                        @enderror
-                                    </div>
-                                </div>
-                            </div>
-
-                            {{--TODO: Add role select--}}
                             <div class="row mb-3">
                                 <div class="col-md-6">
                                     <div class="form-group">

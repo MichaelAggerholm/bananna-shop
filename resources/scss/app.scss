@@ -57,15 +57,17 @@ body {
 }
 
 .form-control::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    opacity: 0.2;
     color: $dark-green;
-    opacity: 1; /* Firefox */
 }
 
 .form-control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    opacity: 0.2;
     color: $dark-green;
 }
 
 .form-control::-ms-input-placeholder { /* Microsoft Edge */
+    opacity: 0.2;
     color: $dark-green;
 }
 
@@ -146,4 +148,18 @@ body {
 
 .login-box {
     padding-top: 150px;
+}
+
+#userRegistrationForm {
+
+    .field {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    label {
+        padding-right: 10px;
+    }
 }
