@@ -14,7 +14,7 @@ Route::get('/', [PagesController::class, 'home'])->name('home');
 Route::get('/login', [PagesController::class, 'login'])->name('login')->middleware('guest');
 Route::post('/login', [AuthController::class, 'validateLogin'])->name('login')->middleware('guest');
 
-Route::get('/register', [PagesController::class, 'register'])->name('register')->middleware('guest');
+Route::get('/register', [PagesController::class, 'register'])->name('register')->middleware('guest', 'curl');
 Route::post('/register', [AuthController::class, 'registerUser'])->name('register')->middleware('guest');
 
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout')->middleware('auth');
@@ -26,7 +26,7 @@ Route::group(['prefix' => '/adminpanel', 'middleware' => 'admin'], function () {
     // Users routes
     Route::group(['prefix' => 'users'], function() {
         Route::get('/', [UserController::class, 'index'])->name('adminpanel.users');
-        Route::get('/create', [UserController::class, 'create'])->name('adminpanel.users.create');
+        Route::get('/create', [UserController::class, 'create'])->name('adminpanel.users.create')->middleware('curl');
         Route::post('/create', [UserController::class, 'store'])->name('adminpanel.users.store');
         Route::get('/{id}', [UserController::class, 'edit'])->name('adminpanel.users.edit');
         Route::put('/{id}', [UserController::class, 'update'])->name('adminpanel.users.edit');
